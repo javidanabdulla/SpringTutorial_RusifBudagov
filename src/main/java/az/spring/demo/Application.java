@@ -8,5 +8,7 @@ public class Application {
         ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
         Notification notification = context.getBean("sms-notification", Notification.class);
         notification.alert();
+        
+        //test
     }
 }
