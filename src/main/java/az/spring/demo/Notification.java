@@ -5,7 +5,7 @@ public class Notification {
     private Employee employee;
 
     public Notification() {
-
+        System.out.println("Notification class worked");
     }
 
     public Notification(Message message, Employee employee) {
