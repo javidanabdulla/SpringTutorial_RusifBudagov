@@ -8,6 +8,14 @@ public class Notification {
         System.out.println("Notification class worked");
     }
 
+    public void myInit () {
+        System.out.println("myInit method worked");
+    }
+
+    public void myDestroy() {
+        System.out.println("destroy method worked");
+    }
+
     public Notification(Message message, Employee employee) {
         this.message = message;
         this.employee = employee;

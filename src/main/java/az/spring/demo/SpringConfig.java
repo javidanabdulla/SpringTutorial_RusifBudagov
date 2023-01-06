@@ -29,8 +29,8 @@ public class SpringConfig {
         return employee;
     }
 
-    @Bean("sms-notification")
-    @Scope("prototype")
+    @Bean(initMethod = "myInit", destroyMethod = "myDestroy", name = "sms-notification")
+    @Scope("singleton")
     public Notification getNotification(@Qualifier("sms")Message message, Employee employee){
         Notification notification = new Notification(); {
             notification.setMessage(message);
