@@ -5,11 +5,18 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
+import java.util.List;
+
 @Configuration
 public class SpringConfig {
 
+    @Bean(initMethod = "myInit", destroyMethod = "myDestroy", name = "notification")
+    public Notification getNotification(){
+        return new Notification();
+    }
+
     @Bean("sms")
-    public Message getSms(){
+    public Sms getSms(){
         return new Sms();
     }
 
@@ -29,24 +36,20 @@ public class SpringConfig {
         return employee;
     }
 
-    @Bean(initMethod = "myInit", destroyMethod = "myDestroy", name = "sms-notification")
-    @Scope("singleton")
-    public Notification getNotification(@Qualifier("sms")Message message, Employee employee){
-        Notification notification = new Notification(); {
-            notification.setMessage(message);
-            notification.setEmployee(employee);
-
-            return notification;
-        }
+    @Bean("deviceAndroid")
+    public Device getDeviceAndroid () {
+        Device device = new Device();
+        device.setName("Android");
+        device.setVersion("1.0.3");
+        return device;
     }
 
-    @Bean("email-notification")
-    public Notification getNotification2(@Qualifier("email") Message message, Employee employee){
-        Notification notification = new Notification(); {
-            notification.setMessage(message);
-            notification.setEmployee(employee);
-
-            return notification;
-        }
+    @Bean("deviceIOS")
+    public Device getDeviceIOS () {
+        Device device = new Device();
+        device.setName("IOS");
+        device.setVersion("1.1.2");
+        return device;
     }
+
 }

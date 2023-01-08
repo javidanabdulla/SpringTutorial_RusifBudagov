@@ -8,7 +8,7 @@ public class Employee {
     private String name, surname;
     private int age;
     private double salary;
-    private List<Device> devices;
+    private List<Device> devicesList;
     private Map<String, Device> deviceMap;
     private Properties databaseProperties;
 
@@ -58,12 +58,12 @@ public class Employee {
         return this;
     }
 
-    public List<Device> getDevices() {
-        return devices;
+    public List<Device> getDevicesList() {
+        return devicesList;
     }
 
-    public Employee setDevices(List<Device> devices) {
-        this.devices = devices;
+    public Employee setDevicesList(List<Device> devicesList) {
+        this.devicesList = devicesList;
         return this;
     }
 
@@ -92,7 +92,7 @@ public class Employee {
                 ", surname='" + surname + '\'' +
                 ", age=" + age +
                 ", salary=" + salary +
-                ", devices=" + devices +
+                ", devices=" + devicesList +
                 ", deviceMap=" + deviceMap +
                 ", databaseProperties=" + databaseProperties +
                 '}';

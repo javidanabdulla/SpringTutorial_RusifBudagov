@@ -1,11 +1,19 @@
 package az.spring.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 public class Notification {
+
+    @Autowired
+    @Qualifier("email")
     private Message message;
+
+    @Autowired
     private Employee employee;
 
     public Notification() {
-        System.out.println("Notification class worked");
+        System.out.println();
     }
 
     public void myInit () {

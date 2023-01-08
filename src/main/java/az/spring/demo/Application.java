@@ -10,7 +10,7 @@ public class Application {
         AbstractApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
         context.registerShutdownHook();
 
-        Notification notification = context.getBean("sms-notification", Notification.class);
+        Notification notification = context.getBean("notification", Notification.class);
         notification.alert();
     }
 }
