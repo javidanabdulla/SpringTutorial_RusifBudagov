@@ -1,49 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:annotation-config/>
-
-    <bean id="notification" class="az.spring.demo.Notification" init-method="myInit" destroy-method="myDestroy"/> <!--Yazmasaq da olar cunku default singleton-dur-->
-    <bean name="message" class="az.spring.demo.Email"/> <!--Autowire ucun yaratdigim bean-->
-    <bean id="sms" class="az.spring.demo.Sms"/>
-    <bean id="email" class="az.spring.demo.Email"/>
-    <bean id="employee" class="az.spring.demo.Employee"> 
-        <constructor-arg value="Javidan" />
-        <constructor-arg value="Abdullayev" />
-        <constructor-arg value="26" />
-        <constructor-arg value="1600" />
-        <property name="devicesList">
-                <list>
-                    <ref bean = "deviceAndroid"/>
-                    <ref bean = "deviceIOS"/>
-                </list>
-        </property>
-        <property name="deviceMap">
-                <map>
-                    <entry key="android" value-ref="deviceAndroid"/>
-                    <entry key="ios" value-ref="deviceIOS"/>
-                </map>
-        </property>
-        <property name="databaseProperties">
-            <props>
-                <prop key="url">jdbc:mysql://localhost:3306/mydb</prop>
-                <prop key="username">root</prop>
-                <prop key="password">12345</prop>
-            </props>
-        </property>
-    </bean>
-
-    <bean id = 'deviceAndroid' class = 'az.spring.demo.Device' >
-        <property name="name" value="Android"/>
-        <property name="version" value="1.0.1.3"/>
-    </bean>
-
-    <bean id = 'deviceIOS' class = 'az.spring.demo.Device' >
-        <property name="name" value="IOS"/>
-        <property name="version" value="1.0.2.5"/>
-    </bean>
+    <context:component-scan base-package="az.spring.demo"/>
 
 </beans>
