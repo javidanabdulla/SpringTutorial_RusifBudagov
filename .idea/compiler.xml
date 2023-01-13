@@ -6,8 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="DependencyInjection_InversionOfControl" />
         <module name="SpringTutorial_RusifBudagov" />
-        <module name="Lesson1_DependencyInjection_inversionOfControl" />
         <module name="SpringTutorial_RufisBudagov" />
         <module name="Springtutorial_RufisBudagov" />
       </profile>
